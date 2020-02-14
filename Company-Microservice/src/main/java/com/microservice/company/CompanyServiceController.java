@@ -21,7 +21,9 @@ public class CompanyServiceController {
     {
         System.out.println("Getting Company details for " + companyname);
  
-        String response = restTemplate.exchange("http://employee-service/getEmployeeDetailsForCompany/{companyname}",
+        System.out.println("End point URL  " + FetchEmpServiceUrl.getEMP_URL());
+       
+        String response = restTemplate.exchange("http://" + FetchEmpServiceUrl.getEMP_URL() +"/getEmployeeDetailsForCompany/{companyname}",
                                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, companyname).getBody();
  
         System.out.println("Response Received as " + response);
