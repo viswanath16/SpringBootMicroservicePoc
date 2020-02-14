@@ -21,11 +21,11 @@ public class CompanyServiceController {
     {
         System.out.println("Getting Company details for " + companyname);
  
-        System.out.println("End point URL  " + FetchEmpServiceUrl.getEMP_URL());
-       
-        String response = restTemplate.exchange("http://" + FetchEmpServiceUrl.getEMP_URL() +"/getEmployeeDetailsForCompany/{companyname}",
-                                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, companyname).getBody();
- 
+        System.out.println("End point URL  " + FetchEmpServiceUrl.getEMP_SER_URL());
+        
+        String response = restTemplate.exchange(FetchEmpServiceUrl.getEMP_SER_URL() +"/{companyname}",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, companyname).getBody();
+
         System.out.println("Response Received as " + response);
  
         return "Company Name -  " + companyname + " \n Company Details " + response;
